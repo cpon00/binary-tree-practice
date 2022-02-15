@@ -10,7 +10,8 @@ b = Node(11)
 c = Node(4)
 d = Node(4)
 e = Node(2)
-f = Node(1)
+f = Node(-20)
+
 
 a.left = b
 a.right = c
@@ -122,6 +123,15 @@ def recursive_min_value(root):
     return min(root.value, recursive_min_value(root.left), recursive_min_value(root.right))
 
 
+def recursive_max_root_to_leaf_sum(root):
+    if not root:
+        return 0
+    if not root.left and not root.right:
+        return root.value
+    return root.value + max(recursive_max_root_to_leaf_sum(root.left), recursive_max_root_to_leaf_sum(root.right))
+
+
+print(recursive_max_root_to_leaf_sum(a))
 print(recursive_min_value(a))
 print(min_value(a))
 print(tree_sum(a))
