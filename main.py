@@ -10,8 +10,7 @@ b = Node(11)
 c = Node(4)
 d = Node(4)
 e = Node(2)
-f = Node(-20)
-
+f = Node(-2)
 
 a.left = b
 a.right = c
@@ -131,15 +130,13 @@ def recursive_max_root_to_leaf_sum(root):
     return root.value + max(recursive_max_root_to_leaf_sum(root.left), recursive_max_root_to_leaf_sum(root.right))
 
 
-print(recursive_max_root_to_leaf_sum(a))
-print(recursive_min_value(a))
-print(min_value(a))
-print(tree_sum(a))
-print(recursive_tree_sum(a))
-print(dfs(a))
-print(recursive_dfs(a))
-print(bfs(a))
-print(dfs_includes(a, 1))
-print(dfs_recursive_includes(a, 2))
-
-
+assert recursive_max_root_to_leaf_sum(a), 18
+assert recursive_min_value(a), -2
+assert min_value(a), -2
+assert tree_sum(a), 22
+assert recursive_tree_sum(a), 22
+assert dfs(a), [3, 11, 4, 2, 4, -2]
+assert recursive_dfs(a), [3, 11, 4, 2, 4, -2]
+assert bfs(a), [3, 11, 4, 4, 2, -2]
+assert dfs_includes(a, 1) is False
+assert dfs_recursive_includes(a, 2) is True
